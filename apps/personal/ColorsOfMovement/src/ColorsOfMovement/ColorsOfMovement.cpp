@@ -53,7 +53,7 @@ void ColorsOfMovement::setup(int width, int height)
 void ColorsOfMovement::update(unsigned char * pixels)
 {	
 	ofImage * currentFrame = new ofImage();
-	(*currentFrame).setFromPixels(pixels, width,  height, 0x01);
+	(*currentFrame).setFromPixels(pixels, width,  height, OF_IMAGE_COLOR);
 	
 	imgs.push_back(currentFrame);
 	if (imgs.size() > MAX_STORED_FRAMES){
