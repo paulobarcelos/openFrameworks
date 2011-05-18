@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38DEEF371383FE3F00CCF79D /* ofxDisplayStackObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38DEEF311383FE3F00CCF79D /* ofxDisplayStackObject.cpp */; };
+		38DEF030138423ED00CCF79D /* ofxFboDisplayStackObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF02E138423ED00CCF79D /* ofxFboDisplayStackObject.cpp */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
 		E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9730E8CC7DD009D7055 /* AudioToolbox.framework */; };
@@ -60,6 +61,8 @@
 /* Begin PBXFileReference section */
 		38DEEF311383FE3F00CCF79D /* ofxDisplayStackObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxDisplayStackObject.cpp; sourceTree = "<group>"; };
 		38DEEF321383FE3F00CCF79D /* ofxDisplayStackObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxDisplayStackObject.h; sourceTree = "<group>"; };
+		38DEF02E138423ED00CCF79D /* ofxFboDisplayStackObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFboDisplayStackObject.cpp; sourceTree = "<group>"; };
+		38DEF02F138423ED00CCF79D /* ofxFboDisplayStackObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFboDisplayStackObject.h; sourceTree = "<group>"; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		E45BE9730E8CC7DD009D7055 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
@@ -118,6 +121,8 @@
 		38DEEF301383FE3F00CCF79D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				38DEF02E138423ED00CCF79D /* ofxFboDisplayStackObject.cpp */,
+				38DEF02F138423ED00CCF79D /* ofxFboDisplayStackObject.h */,
 				38DEEF311383FE3F00CCF79D /* ofxDisplayStackObject.cpp */,
 				38DEEF321383FE3F00CCF79D /* ofxDisplayStackObject.h */,
 			);
@@ -277,6 +282,7 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
 				38DEEF371383FE3F00CCF79D /* ofxDisplayStackObject.cpp in Sources */,
+				38DEF030138423ED00CCF79D /* ofxFboDisplayStackObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
