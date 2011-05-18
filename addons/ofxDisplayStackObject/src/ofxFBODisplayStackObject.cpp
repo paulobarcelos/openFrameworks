@@ -52,7 +52,7 @@ void ofxFBODisplayStackObject::drawInFBO(){
 	fbo.begin();
 	glPushAttrib(GL_CURRENT_BIT);
 	ofEnableAlphaBlending();
-	ofxVec4f tintColor =  colorToGloabal(color);
+	ofVec4f tintColor =  colorToGloabal(color);
 	glColor4f(tintColor.x, tintColor.y, tintColor.z, tintColor.w);
 	if(_baseObjectToBack){if(baseObject != NULL)baseObject->draw(0,0);}
 	for (list<ofxDisplayStackObject*>::iterator it = childs.begin(); it!=childs.end(); ++it) (*it)->draw();
