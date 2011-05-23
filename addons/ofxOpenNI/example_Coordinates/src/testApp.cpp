@@ -11,41 +11,42 @@ void testApp::setup(){
 //--------------------------------------------------------------
 void testApp::update(){
 	context.update();
-	user.update();
-
+	user.update();	
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
 	depth.draw(0,0,640,480);
-	user.draw();
-	ofxTrackedUser* tracked = user.getTrackedUser(0);
+	user.draw();	
 	
-	stringstream reportStream;
+	trackedUsers = user.getTrackedUsers();
 	
-	if(tracked != NULL) {
-		tracked->debugDraw();
+	std::vector<ofxTrackedUser*>::iterator userIt = trackedUsers.begin();
+	while(userIt != trackedUsers.end()) {
+		(*userIt)->debugDraw();
 		
 		XnPoint3D pos[2];
-		pos[0].X = tracked->left_lower_arm.begin.x;
-		pos[0].Y = tracked->left_lower_arm.begin.y;
-		pos[0].Z = tracked->left_lower_arm.begin.z;
+		pos[0].X = (*userIt)->left_lower_arm.end.x;
+		pos[0].Y = (*userIt)->left_lower_arm.end.y;
+		pos[0].Z = (*userIt)->left_lower_arm.end.z;
 		
-		pos[1].X = tracked->left_lower_arm.begin.x;
-		pos[1].Y = tracked->left_lower_arm.begin.y;
-		pos[1].Z = tracked->left_lower_arm.begin.z;
+		pos[1].X = (*userIt)->left_lower_arm.end.x;
+		pos[1].Y = (*userIt)->left_lower_arm.end.y;
+		pos[1].Z = (*userIt)->left_lower_arm.end.z;
 		
 		depth.getXnDepthGenerator().ConvertProjectiveToRealWorld(2, pos, pos);
-
-		reportStream << "Left Hand X: " << ofToString(pos[1].X, 2) << endl;
-		reportStream << "Left Hand Y: " << ofToString(pos[1].Y, 2) << endl;
-		reportStream << "Left Hand Z: " << ofToString(pos[1].Z, 2) << endl;
+		
+		stringstream reportStream;
+		reportStream << "User " << ofToString((*userIt)->id, 1) << endl << "Left Hand (";
+		reportStream << ofToString(pos[1].X, 2) << ", ";
+		reportStream << ofToString(pos[1].Y, 2) << ", ";
+		reportStream << ofToString(pos[1].Z, 2) << ")";
+		
+		ofSetColor(255, 255, 255);
+		ofDrawBitmapString(reportStream.str(),(*userIt)->left_lower_arm.end.x,(*userIt)->left_lower_arm.end.y);		
+		
+		++userIt;
 	}
-
-	 // draw instructions
-	 ofSetColor(255, 255, 255);	
-	 ofDrawBitmapString(reportStream.str(),650,20);
-	 
 }
 
 //--------------------------------------------------------------

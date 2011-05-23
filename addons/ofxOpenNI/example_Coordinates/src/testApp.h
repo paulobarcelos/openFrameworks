@@ -20,9 +20,12 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		//ofxONI oni;
+		
 		ofxOpenNIContext context;
 		ofxDepthGenerator depth;
 		ofxUserGenerator user;
+	
+		std::vector<ofxTrackedUser*>  trackedUsers;
 		
 		
 };
