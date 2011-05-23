@@ -1,14 +1,3 @@
-!Kinect
-!ColorsOfMovement
-!examples
-!examples/**
-!addonsExamples
-!addonsExamples/**
-!iPhoneExamples
-!iPhoneExamples/**
-!androidExamples
-!androidExamples/**
-!androidExamples/*/**
 */.metadata
 androidExamples/*/Debug
 androidExamples/*/Release
@@ -22,4 +11,3 @@ androidExamples/*/.settings
 androidExamples/*/.externalToolBuilders
 libOFAndroidApp.so
 */*/.*project
-!androidExamples/*/.*project
