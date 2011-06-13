@@ -23,6 +23,11 @@ void ofxRegisterMultitouch(ofxAndroidApp * app);
 
 void ofxAndroidAlertBox(string msg);
 
+void ofxAndroidToast(string msg);
+
+void ofxAndroidLockScreenSleep();
+void ofxAndroidUnlockScreenSleep();
+
 //-------------------------------------
 // this functions are only for internal use
 void ofPauseVideoGrabbers();
@@ -36,6 +41,7 @@ void ofReloadAllFontTextures();
 void  ofUpdateBitmapCharacterTexture();
 
 void ofxAndroidSoundStreamPause();
+void ofxAndroidSoundStreamResume();
 
 
 //this is just to fix a problem with undefined symbols
