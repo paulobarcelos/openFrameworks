@@ -126,6 +126,7 @@ class ofxUeye{
 		bool			bLive;
 		bool 			bIsFrameNew;
 		bool			bPixelPreprocessed;
+		bool			bWaitingToGrab;
 
 		// internal info
 		int				_binning;

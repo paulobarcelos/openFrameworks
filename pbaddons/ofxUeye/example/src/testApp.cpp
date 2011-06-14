@@ -2,8 +2,6 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-
-	ofSetFrameRate(60);
 	ofSetVerticalSync(true);
 	ofAddListener(ueye.events.onReady, this, &testApp::ueyeReady);
 
@@ -13,7 +11,7 @@ void testApp::setup(){
 	if(ueye.init())
 	{
 		// Get full area of the sesor, but skipping every second pixel
-		ueye.setBinning(IS_BINNING_4X_VERTICAL | IS_BINNING_4X_HORIZONTAL); // difference from subsamplimg? (apparently same bandwith but smoother image)
+		ueye.setBinning(IS_BINNING_2X_VERTICAL | IS_BINNING_2X_HORIZONTAL); // difference from subsamplimg? (apparently same bandwith but smoother image)
 	
 		// smooth the bad pixels (apparently they come from factory with bad pixels...)
 		ueye.enableBadPixelsCorrection();
@@ -24,8 +22,8 @@ void testApp::setup(){
 		fullHD.height = 1080;
 		fullHD.x = 0;
 		fullHD.y = (ueye.getAOIMax().height - fullHD.height) * 0.5;
-		//ueye.setAOI(fullHD);
-		ueye.setAOINormalized(ofRectangle(0,0, 0.6, 0.6));
+		ueye.setAOI(fullHD);
+		//ueye.setAOINormalized(ofRectangle(0,0, 0.6, 0.6));
 			
 		// Start grabbing pixels
 		ueye.enableLive();
@@ -38,8 +36,7 @@ void testApp::ueyeReady(ofxUeyeEventArgs &args){
 	// If we got here, bandwith has changed.
 	// Pixel Clock, FPS and Exposure should be adjusted.
 	ueye.setPixelClock(ueye.getPixelClockMax());
-	//ueye.setFPS(ueye.getFPSMax());
-	ueye.setFPS(60);
+	ueye.setFPS(ueye.getFPSMax());
 
 	tex.clear();
 	tex.allocate(ueye.getWidth(), ueye.getHeight(),GL_RGB);
