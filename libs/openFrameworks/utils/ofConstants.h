@@ -45,6 +45,12 @@ enum ofLoopType{
 		#   define _WIN32_WINNT 0x400
 	#endif
 	#define WIN32_LEAN_AND_MEAN
+
+	#if (_MSC_VER)
+		#define NOMINMAX		
+		//http://stackoverflow.com/questions/1904635/warning-c4003-and-errors-c2589-and-c2059-on-x-stdnumeric-limitsintmax
+	#endif
+
 	#include <windows.h>
 	#define GLEW_STATIC
 	#include "GL\glew.h"
@@ -53,6 +59,7 @@ enum ofLoopType{
 	#define __WINDOWS_DS__
 	#define __WINDOWS_MM__
 	#if (_MSC_VER)       // microsoft visual studio
+		typedef unsigned __int64  uint64_t;		// allow us to use uint64_t
 		#pragma warning(disable : 4996)     // disable all deprecation warnings
 		#pragma warning(disable : 4068)     // unknown pragmas
 		#pragma warning(disable : 4101)     // unreferenced local variable
@@ -140,11 +147,13 @@ enum ofLoopType{
 
 #ifdef TARGET_OPENGLES
 	#include "glu.h"
-	typedef GLushort ofIndexType ;
+	//typedef GLushort ofIndexType ;
 #else
-	typedef GLuint ofIndexType;
+	//typedef GLuint ofIndexType;
 #endif
 
+#include "tesselator.h"
+typedef TESSindex ofIndexType;
 
 
 #ifndef __MWERKS__
@@ -338,11 +347,11 @@ enum ofBlendMode{
 //this is done to match the iPhone defaults 
 //we don't say landscape, portrait etc becuase iPhone apps default to portrait while desktop apps are typically landscape
 enum ofOrientation{
-	OF_ORIENTATION_UNKNOWN = -1,
-	OF_ORIENTATION_DEFAULT = 0,
-	OF_ORIENTATION_90_LEFT = 90,
-	OF_ORIENTATION_180 = 180,
-	OF_ORIENTATION_90_RIGHT = 270,
+	OF_ORIENTATION_UNKNOWN = 0,
+	OF_ORIENTATION_DEFAULT = 1,	
+	OF_ORIENTATION_180 = 2,
+	OF_ORIENTATION_90_RIGHT = 3,
+	OF_ORIENTATION_90_LEFT = 4,
 };
 
 // these are straight out of glu, but renamed and included here
